@@ -1,118 +1,81 @@
-/**
- * 
- */
 package tuan4.bai8CaSy;
 
 /**
  * Tuan 4, Bai 8, mssv 25750041, hoten: Ngo Thanh Duoc
  */
 public class CD {
-	/**
-	 * Khai bao thuoc tinh
-	 */
-	private String MaCD;
-	private String TuaCD;
-	private String CaSy;
+	private int maCD;
+	private String tuaCD;
+	private String caSy;
 	private int soBaiHat;
 	private float giaThanh;
-	
-	/**
-	 * Dong goi va rang buoc
-	 */
-	/**
-	 * @return the maCD
-	 */
-	public String getMaCD() {
-		return MaCD;
+
+	public CD() {
 	}
-	/**
-	 * @param maCD the maCD to set
-	 */
-	public void setMaCD(String maCD) {
-		MaCD = maCD;
+
+	public CD(int maCD, String tuaCD, String caSy, int soBaiHat, float giaThanh) throws Exception {
+		this.maCD = maCD;
+		this.tuaCD = tuaCD;
+		this.caSy = caSy;
+		setSoBaiHat(soBaiHat);
+		setGiaThanh(giaThanh);
 	}
-	/**
-	 * @return the tuaCD
-	 */
-	public String getTuaCD() {
-		return TuaCD;
-	}
-	/**
-	 * @param tuaCD the tuaCD to set
-	 */
-	public void setTuaCD(String tuaCD) {
-		TuaCD = tuaCD;
-	}
-	/**
-	 * @return the caSy
-	 */
+
 	public String getCaSy() {
-		return CaSy;
+		return caSy;
 	}
-	/**
-	 * @param caSy the caSy to set
-	 */
+
 	public void setCaSy(String caSy) {
-		CaSy = caSy;
+		this.caSy = caSy;
 	}
-	/**
-	 * @return the soBaiHat
-	 */
+
+	public int getMaCD() {
+		return maCD;
+	}
+
+	public void setMaCD(int maCD) {
+		this.maCD = maCD;
+	}
+
+	public String getTuaCD() {
+		return tuaCD;
+	}
+
+	public void setTuaCD(String tuaCD) {
+		this.tuaCD = tuaCD;
+	}
+
 	public int getSoBaiHat() {
 		return soBaiHat;
 	}
-	/**
-	 * @param soBaiHat the soBaiHat to set
-	 * @throws Exception 
-	 */
+
 	public void setSoBaiHat(int soBaiHat) throws Exception {
-		if(soBaiHat>0) {
+		if (soBaiHat > 0) {
 			this.soBaiHat = soBaiHat;
-		}
-		else {
-			throw new Exception("So bai hat lon hon 0");
+		} else {
+			throw new Exception("So bai hat > 0");
 		}
 	}
-	/**
-	 * @return the giaThanh
-	 */
+
 	public float getGiaThanh() {
 		return giaThanh;
 	}
-	/**
-	 * @param giaThanh the giaThanh to set
-	 */
-	public void setGiaThanh(float giaThanh) {
-		this.giaThanh = giaThanh;
-	}
-	/**
-	 * Tao constructor
-	 */
-	/**
-	 * @param maCD
-	 * @param tuaCD
-	 * @param caSy
-	 * @param soBaiHat
-	 * @param giaThanh
-	 * @throws Exception 
-	 */
-	public CD(String maCD, String tuaCD, String caSy, int soBai, float giaThanh) throws Exception {
-		this.MaCD = maCD;
-		this.TuaCD = tuaCD;
-		this.CaSy = caSy;
-		if(soBaiHat>0) {
-			this.soBaiHat = soBai;
-		}
-		else {
-			throw new Exception("So bai hat lon hon 0");
-		}
-		this.giaThanh = giaThanh;
-	}
-	public CD() {
 
+	public void setGiaThanh(float giaThanh) throws Exception {
+		if (giaThanh < 0) {
+			throw new Exception("Invalid giaThanh > 0");
+		} else {
+			this.giaThanh = giaThanh;
+		}
 	}
-	/**
-	 * Tao Tieu de in
-	 */
-	public static void TieuDe
+
+	public static void tieuDe() {
+		System.out.printf("%-10s %-25s %-20s %10s %-30s\n",
+				"Ma CD", "Tua CD", "Ca Sy", "So Bai Hat", "Gia Thanh");
+	}
+
+	@Override
+	public String toString() {
+		return String.format("%-10d %-25s %-20s %-10d %18.2f", maCD, tuaCD, caSy, soBaiHat, giaThanh);
+	}
 }
